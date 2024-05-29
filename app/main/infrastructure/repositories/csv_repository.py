@@ -1,6 +1,6 @@
 from typing import List
 from app.main.application.interfaces.mapper_config_repository import IDataRepository, IDataAdapter
-from app.main.domain.entities import DataRecord
+from app.main.domain.entities.entities import DataRecord
 
 class CSVRepository(IDataRepository):
     def __init__(self, adapter: IDataAdapter, file_path: str):

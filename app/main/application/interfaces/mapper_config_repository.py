@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List
-from app.main.domain.entities import DataRecord
+from app.main.domain.entities.entities import DataRecord
 
 class IDataRepository(ABC):
     @abstractmethod

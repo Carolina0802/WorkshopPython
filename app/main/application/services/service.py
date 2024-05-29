@@ -1,5 +1,5 @@
 from typing import List
-from app.main.domain.entities import DataRecord
+from app.main.domain.entities.entities import DataRecord
 from app.main.application.interfaces.mapper_config_repository import IDataRepository
 
 class CSVService:

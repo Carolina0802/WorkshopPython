@@ -1,7 +1,7 @@
 import csv
 from typing import List
 from app.main.application.interfaces.mapper_config_repository import IDataAdapter
-from app.main.domain.entities import DataRecord
+from app.main.domain.entities.entities import DataRecord
 
 class CSVAdapter(IDataAdapter):
     def adapt(self, data: List[dict]) -> List[DataRecord]:
