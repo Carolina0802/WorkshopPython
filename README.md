@@ -7,26 +7,47 @@ This project demonstrates the use of Clean Architecture in reading and processin
 ```plaintext
 app/
 │
+├── __init__.py
+│
 ├── main/
+│   ├── __init__.py
+│   │
 │   ├── application/
+│   │   ├── __init__.py
+│   │   │
 │   │   ├── interfaces/
+│   │   │   ├── __init__.py
 │   │   │   └── csv_reader_service_interface.py
+│   │   │
 │   │   └── services/
+│   │       ├── __init__.py
 │   │       └── csv_reader_service.py
 │   │
 │   ├── domain/
+│   │   ├── __init__.py
+│   │   │
 │   │   ├── entities/
+│   │   │   ├── __init__.py
 │   │   │   └── csv_data.py
+│   │   │
 │   │   └── helpers/
-│   │       └── json_file_path.py
+│   │       ├── __init__.py
+│   │       └── json_file_path_helpers.py            
+│   │       └── csv_repository_helpers.py
 │   │
 │   ├── infrastructure/
+│   │   ├── __init__.py
+│   │   │
 │   │   ├── di/
+│   │   │   ├── __init__.py
 │   │   │   └── dependency_injection.py
+│   │   │
 │   │   └── repositories/
+│   │       ├── __init__.py
 │   │       └── csv_repository.py
 │   │
 │   └── resource/
+│       ├── __init__.py
 │       └── data.csv
 │
 └── main.py
@@ -35,7 +56,7 @@ app/
 ## Prerequisites
 
 - Python 3.x
-- Virtualenv
+- Ambiente virtual env
 
 ## Installation and Setup
 
