@@ -1,12 +1,21 @@
-from typing import List
-from app.main.application.interfaces.mapper_config_repository import IDataRepository, IDataAdapter
-from app.main.domain.entities.entities import DataRecord
+# app/main/infrastructure/repository/csv_repository.py
+import csv
+from app.main.domain.entities.csv_data import Person
+from app.main.domain.helpers.csv_file_path import CSV_FILE_PATH
 
-class CSVRepository(IDataRepository):
-    def __init__(self, adapter: IDataAdapter, file_path: str):
-        self.adapter = adapter
-        self.file_path = file_path
+class CSVRepository:
+    def read_data(self):
+        with open(CSV_FILE_PATH, mode='r') as file:
+            csv_reader = csv.DictReader(file)
+            persons = []
+            for row in csv_reader:
+                person = Person()
+                person.id = row['id']
+                person.name = row['name']
+                person.age = row['age']
+                persons.append(person)
+            return persons
 
-    def read_data(self) -> List[DataRecord]:
-        raw_data = self.adapter.load_csv(self.file_path)
-        return self.adapter.adapt(raw_data)
+    def print_data(self, data):
+        for person in data:
+            print(f"ID: {person.id}, Name: {person.name}, Age: {person.age}")
