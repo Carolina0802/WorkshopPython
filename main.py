@@ -1,4 +1,3 @@
-# app/main/main.py
 from app.main.infrastructure.di.dependency_injection import inject_dependencies
 
 def main():

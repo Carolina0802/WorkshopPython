@@ -1,18 +1,18 @@
-# app/main/infrastructure/repository/csv_repository.py
 import csv
 from app.main.domain.entities.csv_data import Person
-from app.main.domain.helpers.csv_file_path import CSV_FILE_PATH
+from app.main.domain.helpers.csv_file_path_helpers import CsvFilePathHelpers
+from app.main.domain.helpers.csv_repository_helpers import CsvRepositoryHelpers
 
 class CSVRepository:
     def read_data(self):
-        with open(CSV_FILE_PATH, mode='r') as file:
+        with open(CsvFilePathHelpers.CSV_FILE_PATH, mode=CsvRepositoryHelpers.MODE) as file:
             csv_reader = csv.DictReader(file)
             persons = []
             for row in csv_reader:
                 person = Person()
-                person.id = row['id']
-                person.name = row['name']
-                person.age = row['age']
+                person.id = row[CsvRepositoryHelpers.ID]
+                person.name = row[CsvRepositoryHelpers.NAME]
+                person.age = row[CsvRepositoryHelpers.AGE]
                 persons.append(person)
             return persons
 
