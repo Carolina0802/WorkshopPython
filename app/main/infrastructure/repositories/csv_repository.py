@@ -9,13 +9,15 @@ class CSVRepository:
             csv_reader = csv.DictReader(file)
             persons = []
             for row in csv_reader:
-                person = Person()
-                person.id = row[CsvRepositoryHelpers.ID]
-                person.name = row[CsvRepositoryHelpers.NAME]
-                person.age = row[CsvRepositoryHelpers.AGE]
+                person = Person(
+                    id=row[CsvRepositoryHelpers.ID],
+                    name=row[CsvRepositoryHelpers.NAME],
+                    age=row[CsvRepositoryHelpers.AGE]
+                )
                 persons.append(person)
             return persons
 
     def print_data(self, data):
         for person in data:
             print(f"ID: {person.id}, Name: {person.name}, Age: {person.age}")
+
